@@ -38,8 +38,8 @@ const Nav = () => {
   ]
   return (
     <>
-      <header className="max-w-screen-2x1 xl:px-28 px-4 bg-black text-white">
-        <nav className="flex justify-between items-center container md:py-4 pt-6 pb-3">
+      <header className="max-w-screen-2x1 xl:px-28 px-4 bg-black text-white pb-8">
+        <nav className="flex justify-between items-center container md:py-4 pt-6 pb-3 ">
           <FaSearch className="text-gray-400 w-5 h-5 cursor-pointer hidden md:block" />
           <a href="/">
             <img

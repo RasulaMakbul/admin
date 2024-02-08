@@ -3,6 +3,7 @@ import "./App.css"
 import {Outlet} from "react-router-dom"
 import Nav from "./Components/Nav"
 import AOS from "aos"
+import "aos/dist/aos.css"
 
 function App() {
   React.useEffect(() => {

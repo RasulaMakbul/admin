@@ -1,7 +1,5 @@
 import React from "react"
-import Logo from "../../logo/logo.jpg"
-import BannerImg from "../../img/banner.jpg"
-import {FaShoppingBag} from "react-icons/fa"
+import BannerImg from "../assets/img/banner.jpg"
 import Slider from "react-slick"
 
 const BannerItems = [
@@ -48,7 +46,33 @@ const Banner = () => {
     pauseOnHover: false,
     pauseOnFocus: true,
   }
-  return <></>
+  return (
+    <>
+      <div className="relative ">
+        <div className="container w-full ">
+          <Slider {...settings}>
+            {BannerItems.map(item => (
+              <div key={item.id} className="relative w-auto h-[720px]">
+                <img
+                  data-aos="flip-left"
+                  data-aos-once="true"
+                  src={item.imgUrl}
+                  alt={item.title}
+                  className="w-full h-full z-10"
+                />
+                <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center text-white">
+                  <div className="text-center bg-[rgba(95,93,93,0.5)] px-2 py-5">
+                    <h1 className="text-8xl font-bold">{item.title}</h1>
+                    <p>{item.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default Banner

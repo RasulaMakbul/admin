@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react"
 import "./App.css"
 import {Outlet} from "react-router-dom"
-import Nav from "./Components/Nav"
+import Nav from "./Components/partials/Nav"
 import AOS from "aos"
 import "aos/dist/aos.css"
+import {Footer} from "./Components/partials/Footer"
 
 function App() {
   React.useEffect(() => {
@@ -19,6 +20,7 @@ function App() {
     <>
       <Nav />
       <Outlet />
+      <Footer />
     </>
   )
 }

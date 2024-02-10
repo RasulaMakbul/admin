@@ -1,6 +1,9 @@
 import React from "react"
 import productImg from "../assets/img/banner.jpg"
 import Slider from "react-slick"
+import {FaCartPlus} from "react-icons/fa6"
+import {TbHeartPlus} from "react-icons/tb"
+import {Link} from "react-router-dom"
 
 const ProductData = [
   {
@@ -10,6 +13,8 @@ const ProductData = [
     rating: 5.0,
     color: "white",
     aosDelay: "0",
+    price: "tk. 1,250/-",
+    productUrl: "/show-product",
   },
   {
     id: 2,
@@ -18,6 +23,8 @@ const ProductData = [
     rating: 5.0,
     color: "red",
     aosDelay: "0",
+    price: "tk. 1,250/-",
+    productUrl: "/show-product",
   },
   {
     id: 3,
@@ -26,6 +33,8 @@ const ProductData = [
     rating: 5.0,
     color: "brown",
     aosDelay: "0",
+    price: "tk. 1,250/-",
+    productUrl: "/show-product",
   },
   {
     id: 4,
@@ -34,6 +43,8 @@ const ProductData = [
     rating: 5.0,
     color: "brown",
     aosDelay: "0",
+    price: "tk. 1,250/-",
+    productUrl: "/show-product",
   },
   {
     id: 5,
@@ -42,6 +53,8 @@ const ProductData = [
     rating: 5.0,
     color: "brown",
     aosDelay: "0",
+    price: "tk. 1,250/-",
+    productUrl: "/show-product",
   },
   {
     id: 6,
@@ -50,6 +63,8 @@ const ProductData = [
     rating: 5.0,
     color: "brown",
     aosDelay: "0",
+    price: "tk. 1,250/-",
+    productUrl: "/show-product",
   },
   {
     id: 7,
@@ -58,6 +73,8 @@ const ProductData = [
     rating: 5.0,
     color: "brown",
     aosDelay: "0",
+    price: "tk. 1,250/-",
+    productUrl: "/show-product",
   },
   {
     id: 8,
@@ -66,12 +83,14 @@ const ProductData = [
     rating: 5.0,
     color: "brown",
     aosDelay: "0",
+    price: "tk. 1,250/-",
+    productUrl: "/show-product",
   },
 ]
 
 const OnSale = () => {
   var settings = {
-    dots: true,
+    dots: false,
     arrows: false,
     infinite: true,
     speed: 500,
@@ -113,12 +132,12 @@ const OnSale = () => {
       <div className="mt-14 mb-12">
         <div className="container">
           {/* Header Section */}
-          <div className="text-center mb-10 mx-w-[600px] mx-auto">
+          <div className="text-left mb-10 mx-w-[600px] mx-auto">
             <p data-aos="fade-up" className="text-sm text-primary">
               Top Selling Products for You
             </p>
             <h1 data-aos="fade-up" className="text-3xl font-bold">
-              Products
+              On Sale
             </h1>
             <p data-aos="fade-up" className="text-xs text-gray-400">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est,
@@ -128,37 +147,66 @@ const OnSale = () => {
           </div>
           {/* Body Section */}
           <div className="">
-            <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5">
+            <Slider {...settings}>
               {/* card section */}
-              <Slider {...settings}>
-                {ProductData.map(data => (
-                  <div
-                    data-aos="fade-up"
-                    data-aos-delay={data.aosDelay}
-                    key={data.id}
-                    className="space-y-3"
-                  >
-                    <img
-                      src={data.img}
-                      className="w-[220px] h-[150px] object-fit rounded-md"
-                      alt=""
-                    />
-                    <div className="">
-                      <h3 className="font-semibold">{data.title}</h3>
-                      <p className="text-sm text-gray-600">{data.color}</p>
-                      <div className="flex items-center gap-1">
-                        <span>{data.rating}</span>
+
+              {ProductData.map(data => (
+                <div
+                  key={data.id}
+                  data-aos="zoom-out"
+                  data-aos-delay={data.aosDelay}
+                  className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-md"
+                >
+                  <Link to={data.productUrl}>
+                    <div className="absolute top-2 left-2 bg-[rgba(199,86,86,0.5)] text-white px-2 py-1 rounded-tr-lg rounded-br-lg">
+                      <span>SALE</span>
+                    </div>
+                    <div className="md:flex">
+                      <div className="md:flex-shrink-0">
+                        <img
+                          className="h-48 w-full object-cover md:w-48"
+                          src={data.img}
+                          alt="Product Image"
+                        />
+                      </div>
+                      <div className="p-8">
+                        <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+                          Product Category
+                        </div>
+                        <a
+                          href="#"
+                          className="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+                        >
+                          {data.title}
+                        </a>
+                        <p className="mt-2 text-gray-500">
+                          Product description or details go here.
+                        </p>
+                        <div className="mt-4">
+                          <span className="text-gray-600">Price: </span>
+                          <span className="text-gray-900 font-semibold">
+                            {data.price}
+                          </span>
+                        </div>
+                        <div className="mt-4 flex felx-row gap-5">
+                          <button className=" bg-white  text-green-500 font-bold py-2 px-4 rounded cursor-pointer over:scale-105 duration-300  drop-shadow-md">
+                            <TbHeartPlus className="text-2xl " />
+                          </button>
+                          <button className=" bg-white  text-red-500 font-bold py-2 px-4 rounded cursor-pointer over:scale-105  duration-300 drop-shadow-md">
+                            <FaCartPlus className="text-2xl over:scale-105 duration-300" />
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </Slider>
-            </div>
+                  </Link>
+                </div>
+              ))}
+            </Slider>
             {/* view all button */}
             <div className="flex justify-center">
               <button className="text-center mt-10 cursor-pointer bg-primary text-white py-1 px-3 rounded-md">
                 {" "}
-                View All Products
+                All Prooduct On Sale
               </button>
             </div>
           </div>

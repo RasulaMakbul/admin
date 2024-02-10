@@ -6,6 +6,8 @@ import "./index.css"
 import Home from "./Home/Home.jsx"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import ProductShow from "./pages/ProductShow.jsx"
+import TrendingPage from "./pages/TrendingPage.jsx"
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/show-product",
+        element: <ProductShow />,
+      },
+      {
+        path: "/trending",
+        element: <TrendingPage />,
       },
     ],
   },
